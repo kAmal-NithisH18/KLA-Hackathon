@@ -22,7 +22,7 @@ DieShift1,DieShift2 = list(map(int,data['DieShiftVector'].replace('(','').replac
 point1 , point2 =list(map(int,data['ReferenceDie'].replace('(','').replace(')','').split(',')))
 
 
-#referace coordinates LLC of reference
+
 start_x = point1 - (DieSize_X/2)
 start_y = point2 - (DieSize_Y/2)
 
@@ -32,12 +32,12 @@ totalBoxes = (math.ceil(diameter/DieSize_X)*math.ceil(diameter/DieSize_Y))
 print(totalBoxes)
 
 def isPlaceable(x,y):
-    flag=0
+    flag = 0
 
-    if((x>radius or x<-radius )and (y>radius or y<-radius)):
-        flag+=1
+    if((x > radius or x < -radius )and (y > radius or y < -radius)):
+        flag += 1
         
-    if((x+DieSize_X>radius or x+DieSize_X<-radius) and (y>radius or y<-radius)):
+    if((x + DieSize_X > radius or x+DieSize_X <- radius) and (y > radius or y<-radius)):
         flag+=1
 
     if((x>radius or x<-radius) and (y+DieSize_Y>radius or y+DieSize_Y<-radius)):
@@ -63,7 +63,7 @@ def BreadthFirstSearch(start_x,start_y):
     resultant = [(0,0)]
     visited.append((start_x,start_y))
 
-    c = 0
+
     while(True):
         x , y = queue.pop(0)
         l1 , l2 = Refernce_List.pop(0)
@@ -134,7 +134,6 @@ def BreadthFirstSearch(start_x,start_y):
             resultant.append((l1-1,l2+1))
             visited.append((x-DieSize_X,y+DieSize_Y))
 
-        c += 1
         
     return resultant,visited
 
